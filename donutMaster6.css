@@ -1,0 +1,98 @@
+/*CSS for donutMaster.html Code Fellows Foundations 1 Assignment 6*/
+body {
+  max-width: 900px;
+  background-color: #F7F7FB;
+  font-family: Georgia, Times, serif;
+  font-size: 16px;
+}
+
+th, td {
+  border-top: 1px solid red;
+  border-right: 1px solid red;
+  border-left: 1px solid red;
+  border-bottom: 1px solid red;
+  text-align: center;
+  padding: 5px;
+}
+
+tr:nth-child(2n) {
+  background-color: rgb(255, 255, 204)
+}
+
+h3 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  margin-top: 0;
+}
+
+table {
+  margin-left: 10%;
+}
+
+img {
+ margin-left: 36%;
+ margin-right: 33%;
+}
+
+ul {
+  list-style: none;
+}
+
+li button {
+  font-size: 1em;
+  margin: 2px;
+  border: 2px solid red;
+}
+
+.headerReplacement {
+  text-indent: -9999px;
+  width: 175px;
+  height: 110px;
+  background: url(http://timali4man.com/Images/donutMasterLogo1.gif);
+  margin-bottom: -110px;
+}
+
+.sum {
+  background-color: #8AB8E6;
+}
+
+.shopList {
+  margin-right: 0;
+  max-width: 280px;
+}
+
+.overlay {
+  max-width: 75%;
+  margin-top: -475px;
+}
+
+#headingsRow {
+  background-color: pink;
+}
+
+#empty {
+  background-color: #777;
+}
+
+#tableButton {
+  background-color: light-blue;
+  border: 2px solid red;
+  font-size: 1.0em;
+  margin: 2px;
+}
+
+#listStores {
+  background-color: rgb(255, 255, 204);
+  border: 2px solid red;
+  font-size: 1em;
+  margin: 2px;
+  width: 244px;
+}
+
+
+
+
+
+
+
+
