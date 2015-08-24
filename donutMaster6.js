@@ -78,9 +78,6 @@ $('#coffeeCup').droppable({
   drop: function(event, ui) {
     ui.helper.remove();
     $(this).append(ui.draggable);
-    setTimeout(function() {
-      $(ui.draggable).draggable("destroy");
-    }, 0);
   }
 });
 
