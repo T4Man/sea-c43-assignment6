@@ -89,6 +89,14 @@ li button {
   width: 244px;
 }
 
+#glazedDonut {
+  margin: 0;
+}
+
+#coffeeCup {
+  margin: 0;
+  position: relative;
+}
 
 
 

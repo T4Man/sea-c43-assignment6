@@ -72,6 +72,18 @@ $(function(){
   $('#22').html(dm.reportOut[22]);
   $('#23').html(dm.reportOut[23]);
 
+$('#glazedDonut').draggable();
+$('#coffeeCup').droppable({
+  accept: "#glazedDonut",
+  drop: function(event, ui) {
+    ui.helper.remove();
+    $(this).append(ui.draggable);
+    setTimeout(function() {
+      $(ui.draggable).draggable("destroy");
+    }, 0);
+  }
+});
+
 $('#dmTable').hide();
 $('#tableButton').on('click', function(){
   $('#dmTable').fadeToggle("slow", "linear");
