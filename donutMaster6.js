@@ -13,6 +13,12 @@ var TopPotShop = function(shopLoc, minCustPerHour, maxCustPerHour,
     this.donutsPerDay = function() {
     return this.donutsPerHour() * this.hrs;
   };
+  this.toHtml = function() {
+      return '<td class="shopLoc">' + this.shopLoc + '</td>' +
+             '<td class="hrs">' + this.hrs + '</td>' +
+             '<td class="donutsPerHour">' + Math.round(this.donutsPerHour()) + '</td>' +
+             '<td class="donutsPerDay">' + Math.round(this.donutsPerDay()) + '</td>';
+    };
 };
 //---------------------------------------------------------------------
 var DonutMaster = function() {
@@ -33,6 +39,14 @@ var DonutMaster = function() {
       Math.round(this.stores[index].donutsPerDay()));
     }
   };
+
+  this.toHtml = function() {
+    $.each(this.stores, function(index, store) {
+      $tr = $('<tr>');
+      $tr.append(store.toHtml());
+      $('#dmTable').append($tr);
+    });
+  };
 };
 //---------------------------------------------------------------------
 var dm = new DonutMaster();
@@ -47,78 +61,58 @@ dm.addNewShop("Pioneer Square", 4, 48, 4, 11);
 dm.generateReport();
 
 $(function(){
-  $('#0').html(dm.reportOut[0]);
-  $('#1').html(dm.reportOut[1]);
-  $('#2').html(dm.reportOut[2]);
-  $('#3').html(dm.reportOut[3]);
-  $('#4').html(dm.reportOut[4]);
-  $('#5').html(dm.reportOut[5]);
-  $('#6').html(dm.reportOut[6]);
-  $('#7').html(dm.reportOut[7]);
-  $('#8').html(dm.reportOut[8]);
-  $('#9').html(dm.reportOut[9]);
-  $('#10').html(dm.reportOut[10]);
-  $('#11').html(dm.reportOut[11]);
-  $('#12').html(dm.reportOut[12]);
-  $('#13').html(dm.reportOut[13]);
-  $('#14').html(dm.reportOut[14]);
-  $('#15').html(dm.reportOut[15]);
-  $('#16').html(dm.reportOut[16]);
-  $('#17').html(dm.reportOut[17]);
-  $('#18').html(dm.reportOut[18]);
-  $('#19').html(dm.reportOut[19]);
-  $('#20').html(dm.reportOut[20]);
-  $('#21').html(dm.reportOut[21]);
-  $('#22').html(dm.reportOut[22]);
-  $('#23').html(dm.reportOut[23]);
+  $('#glazedDonut').draggable();
+  $('#coffeeCup').droppable({
+    accept: "#glazedDonut",
+      drop: function(event, ui) {
+      ui.helper.remove();
+      $(this).append(ui.draggable);
+      }
+  });
 
-$('#glazedDonut').draggable();
-$('#coffeeCup').droppable({
-  accept: "#glazedDonut",
-  drop: function(event, ui) {
-    ui.helper.remove();
-    $(this).append(ui.draggable);
-  }
-});
+  $('#dmTable').hide();
+  $('#tableButton').one('click', function(){
+    $('#dmTable tr:gt(0)').remove();
+    dm.toHtml();
+  });
 
-$('#dmTable').hide();
-$('#tableButton').on('click', function(){
-  $('#dmTable').fadeToggle("slow", "linear");
-});
+  $('#tableButton').on('click', function(){
+    $('#dmTable').fadeToggle("slow", "linear");
+  });
 
-$('.shopList').hide();
-$('#listStores').on('click', function(){
-  $('.shopList').slideToggle("slow", "linear");
-});
+  $('.shopList').hide();
+  $('#listStores').on('click', function(){
+    $('.shopList').slideToggle("slow", "linear");
+  });
 
-$('#BelltownShop').hide();
-$('#store1').on('click', function(){
-  $('#BelltownShop').slideToggle("slow", "linear");
-});
+  $('#BelltownShop').hide();
+  $('#store1').on('click', function(){
+    $('#BelltownShop').slideToggle("slow", "linear");
+  });
 
-$('#CapHillShop').hide();
-$('#store2').on('click', function(){
-  $('#CapHillShop').slideToggle("slow", "linear");
-});
+  $('#CapHillShop').hide();
+  $('#store2').on('click', function(){
+    $('#CapHillShop').slideToggle("slow", "linear");
+  });
 
-$('#SLUshop').hide();
-$('#store3').on('click', function(){
-  $('#SLUshop').slideToggle("slow", "linear");
-});
+  $('#SLUshop').hide();
+  $('#store3').on('click', function(){
+    $('#SLUshop').slideToggle("slow", "linear");
+  });
 
-$('#RooseveltShop').hide();
-$('#store4').on('click', function(){
-  $('#RooseveltShop').slideToggle("slow", "linear");
-});
+  $('#RooseveltShop').hide();
+  $('#store4').on('click', function(){
+    $('#RooseveltShop').slideToggle("slow", "linear");
+  });
 
-$('#BallardShop').hide();
-$('#store5').on('click', function(){
-  $('#BallardShop').slideToggle("slow", "linear");
-});
+  $('#BallardShop').hide();
+  $('#store5').on('click', function(){
+    $('#BallardShop').slideToggle("slow", "linear");
+  });
 
-$('#PioneerSquareShop').hide();
-$('#store6').on('click', function(){
-  $('#PioneerSquareShop').slideToggle("slow", "linear");
-});
+  $('#PioneerSquareShop').hide();
+  $('#store6').on('click', function(){
+    $('#PioneerSquareShop').slideToggle("slow", "linear");
+  });
 });
 
